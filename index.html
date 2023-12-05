@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Parameter Redirect</title>
+</head>
+<body>
+
+<script>
+    // Function to get URL parameters by name
+    function getUrlParameter(name) {
+        name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    // Check if the "code" parameter is present in the URL
+    var codeParameter = getUrlParameter('code');
+
+    if (codeParameter !== '') {
+        // Redirect to localhost with the "code" parameter
+        window.location.href = 'http://localhost:5173/?code=' + codeParameter;
+    }
+
+    // You can add more JavaScript code or messages here if needed
+
+</script>
+
+</body>
+</html>
