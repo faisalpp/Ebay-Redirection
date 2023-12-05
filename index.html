@@ -10,14 +10,28 @@
     <h2 id="urlContainer"></h2>
 
     <script>
-        // Get the current URL
-        var currentURL = window.location.href;
 
+        // Function to get URL parameters by name
+    function getUrlParameter(name) {
+        name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    // Check if the "code" parameter is present in the URL
+    var codeParameter = getUrlParameter('code');
+
+    if (codeParameter !== '') {
         // Find the H2 element by its ID
         var h2Element = document.getElementById('urlContainer');
-
         // Set the text content of the H2 element to the current URL
-        h2Element.textContent = currentURL;
+        h2Element.textContent = codeParameter;
+        // Redirect to localhost with the "code" parameter
+        // window.location.href = 'http://localhost:5173/?code=' + codeParameter;
+    }
+
+
     </script>
 
 </body>
