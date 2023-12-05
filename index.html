@@ -25,9 +25,10 @@
     if (codeParameter !== '') {
         // Find the H2 element by its ID
         var h2Element = document.getElementById('urlContainer');
-        // Set the text content of the H2 element to the current URL
-        h2Element.textContent = codeParameter;
         // Redirect to localhost with the "code" parameter
+        const url = 'http://localhost:5173/?code=' + codeParameter;
+        h2Element.textContent = url;
+        // Set the text content of the H2 element to the current URL
         // window.location.href = 'http://localhost:5173/?code=' + codeParameter;
     }
 
