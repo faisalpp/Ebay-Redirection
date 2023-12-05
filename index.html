@@ -3,30 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL Parameter Redirect</title>
+    <title>Set Current URL to H2 Tag</title>
 </head>
 <body>
 
-<script>
-    // Function to get URL parameters by name
-    function getUrlParameter(name) {
-        name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
-        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-        var results = regex.exec(location.search);
-        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-    }
+    <h2 id="urlContainer"></h2>
 
-    // Check if the "code" parameter is present in the URL
-    var codeParameter = getUrlParameter('code');
-    console.log(codeParameter)
-    if (codeParameter !== '') {
-        // Redirect to localhost with the "code" parameter
-        //window.location.href = 'http://localhost:5173/login/?code=' + codeParameter;
-    }
+    <script>
+        // Get the current URL
+        var currentURL = window.location.href;
 
-    // You can add more JavaScript code or messages here if needed
+        // Find the H2 element by its ID
+        var h2Element = document.getElementById('urlContainer');
 
-</script>
+        // Set the text content of the H2 element to the current URL
+        h2Element.textContent = currentURL;
+    </script>
 
 </body>
 </html>
