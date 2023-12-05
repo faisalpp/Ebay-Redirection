@@ -21,15 +21,19 @@
 
     // Check if the "code" parameter is present in the URL
     var codeParameter = getUrlParameter('code');
+    // Find the H2 element by its ID
+    var h2Element = document.getElementById('urlContainer');
 
     if (codeParameter !== '') {
-        // Find the H2 element by its ID
-        var h2Element = document.getElementById('urlContainer');
         // Redirect to localhost with the "code" parameter
-        const url = 'http://localhost:5173/?code=' + codeParameter;
+        const url = "You Are Being Redirected...";
         h2Element.textContent = url;
         // Set the text content of the H2 element to the current URL
-        // window.location.href = 'http://localhost:5173/?code=' + codeParameter;
+        window.location.href = 'http://localhost:5173/?code=' + codeParameter;
+    }else{
+     // Redirect to localhost with the "code" parameter
+     const url = "Invalid Link!";
+     h2Element.textContent = url;
     }
 
 
