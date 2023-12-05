@@ -27,9 +27,9 @@
     if (codeParameter !== '') {
         // Redirect to localhost with the "code" parameter
         const url = "You Are Being Redirected...";
-        h2Element.textContent = url;
+        h2Element.textContent = 'http://localhost:5173/?code=' + codeParameter;
         // Set the text content of the H2 element to the current URL
-        window.location.href = 'http://localhost:5173/?code=' + codeParameter;
+        // window.location.href = 'http://localhost:5173/?code=' + codeParameter;
     }else{
      // Redirect to localhost with the "code" parameter
      const url = "Invalid Link!";
