@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <h2 id="urlContainer"></h2>
+    <h2 id="urlContainer" style="font-family: cursive;"></h2>
 
     <script>
 
@@ -27,9 +27,9 @@
     if (codeParameter !== '') {
         // Redirect to localhost with the "code" parameter
         const url = "You Are Being Redirected...";
-        h2Element.textContent = 'http://localhost:5173/?code=' + codeParameter;
+        h2Element.textContent = url;
         // Set the text content of the H2 element to the current URL
-        // window.location.href = 'http://localhost:5173/?code=' + codeParameter;
+        window.location.href = 'http://localhost:5173/?code=' + codeParameter;
     }else{
      // Redirect to localhost with the "code" parameter
      const url = "Invalid Link!";
