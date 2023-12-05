@@ -18,10 +18,10 @@
 
     // Check if the "code" parameter is present in the URL
     var codeParameter = getUrlParameter('code');
-
+    console.log(codeParameter)
     if (codeParameter !== '') {
         // Redirect to localhost with the "code" parameter
-        window.location.href = 'http://localhost:5173/login/?code=' + codeParameter;
+        //window.location.href = 'http://localhost:5173/login/?code=' + codeParameter;
     }
 
     // You can add more JavaScript code or messages here if needed
