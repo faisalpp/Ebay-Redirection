@@ -22,20 +22,15 @@
     // Check if the "code" parameter is present in the URL
     var code = getUrlParameter('code');
     var expiry = getUrlParameter('expires_in');
-    var env = getUrlParameter('env');
     // Find the H2 element by its ID
     var h2Element = document.getElementById('urlContainer');
 
-    if (codeParameter !== '') {
+    if (code !== '') {
         // Redirect to localhost with the "code" parameter
         const url = "You Are Being Redirected...";
         h2Element.textContent = url;
         // Set the text content of the H2 element to the current URL
-        if(env === 'production'){
-          window.location.href = 'http://localhost:5173/' + code + '/' + expiry;
-        }else{
-          window.location.href = 'http://localhost:3000/' + code + '/' + expiry;
-        }
+        window.location.href = 'http://localhost:5173/' + code + '/' + expiry;
     }else{
      // Redirect to localhost with the "code" parameter
      const url = "Invalid Link!";
