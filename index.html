@@ -32,9 +32,9 @@
         h2Element.textContent = url;
         // Set the text content of the H2 element to the current URL
         if(env === 'production'){
-          window.location.href = 'http://localhost:3000/redirect' + code + '/' + expiry;
+          window.location.href = 'http://localhost:3000/redirect/' + code + '/' + expiry;
         }else{
-          window.location.href = 'http://localhost:5173/redirect' + code + '/' + expiry;
+          window.location.href = 'http://localhost:5173/redirect/' + code + '/' + expiry;
         }
     }else{
      // Redirect to localhost with the "code" parameter
