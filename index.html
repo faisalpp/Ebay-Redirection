@@ -13,15 +13,16 @@
 
     // Function to get URL parameters by name
     function getUrlCodeParameter(name) {
-        name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
-        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-        var results = regex.exec(location.search);
-        return results === null ? '' : encodeURIComponent(results[1].replace(/\+/g, ' '));
+     name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
+     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+     var results = regex.exec(location.search);
+     return results === null ? '' : encodeURIComponent(results[1].replace(/\+/g, ' '));
     }
 
     // Check if the "code" parameter is present in the URL
-    var code = getUrlParameter('code');
-    var expiry = getUrlParameter('expires_in');
+    var code = getUrlCodeParameter('code');
+    var expiry = getUrlCodeParameter('expires_in');
+    var env = getUrlCodeParameter('env');
     // Find the H2 element by its ID
     var h2Element = document.getElementById('urlContainer');
 
@@ -30,7 +31,11 @@
         const url = "You Are Being Redirected...";
         h2Element.textContent = url;
         // Set the text content of the H2 element to the current URL
-        window.location.href = 'http://localhost:5173/' + code + '/' + expiry;
+        if(env === 'production'){
+          window.location.href = 'http://localhost:3000/' + code + '/' + expiry;
+        }else{
+          window.location.href = 'http://localhost:5173/' + code + '/' + expiry;
+        }
     }else{
      // Redirect to localhost with the "code" parameter
      const url = "Invalid Link!";
