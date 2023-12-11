@@ -5,9 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ebay Redirection</title>
 </head>
-<body>
+<style>
+  @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-30px);
+      }
+      60% {
+        transform: translateY(-15px);
+      }
+    }
 
-    <h2 id="urlContainer" style="font-family: cursive;"></h2>
+    #img {
+      animation: bounce 2s infinite;
+    }
+</style>
+<body style="font-family: cursive;display:flex;justify-content: center;align-items: center;margin:0px;background-color: black;height: 100vh;">
+
+  <div style="display: flex;flex-direction: column;align-items: center;padding-top:2.5rem;padding-bottom: 2.5rem;width:18rem;background-color: rgba(255, 255, 255, 0.4);border-radius: 12px;" >
+    <img id="img" src="/icon.png" style='width: 6rem;' />
+    <h3 style="color:white" id="urlContainer" >You Are Being Redirected...</h3>
+  </div>
 
     <script>
 
@@ -25,21 +45,22 @@
     var env = getUrlCodeParameter('env');
     // Find the H2 element by its ID
     var h2Element = document.getElementById('urlContainer');
+    var imageElement = document.getElementById('img');
 
     if (code !== '') {
-        // Redirect to localhost with the "code" parameter
-        const url = "You Are Being Redirected...";
-        h2Element.textContent = url;
         // Set the text content of the H2 element to the current URL
         if(env === 'production'){
           window.location.href = 'http://localhost:3000/redirect/' + code + '/' + expiry;
         }else{
           window.location.href = 'http://localhost:5173/redirect/' + code + '/' + expiry;
         }
+
     }else{
      // Redirect to localhost with the "code" parameter
-     const url = "Invalid Link!";
+     const url = "Invalid Code!";
      h2Element.textContent = url;
+     h2Element.style.color = 'rgba(255,124,128)';
+     imageElement.src = '/alert.gif'
     }
 
 
