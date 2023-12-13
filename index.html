@@ -55,13 +55,12 @@
         }else{
           window.location.href = 'http://localhost:5173/redirect/' + code + '/' + expiry;
         }
-
     }else{
      // Redirect to localhost with the "code" parameter
+     imageElement.src = '/alert.gif'
      const url = "Invalid Code!";
      h2Element.textContent = url;
      h2Element.style.color = 'rgba(255,124,128)';
-     imageElement.src = '/alert.gif'
     }
 
 
