@@ -51,7 +51,7 @@
         // Set the text content of the H2 element to the current URL
         imageElement.src = '/icon.png'
         if(env === 'production'){
-          window.location.href = 'http://localhost:3000/redirect/' + code + '/' + expiry;
+          window.location.href = 'https://localhost:3000/redirect/' + code + '/' + expiry;
         }else{
           window.location.href = 'http://localhost:5173/redirect/' + code + '/' + expiry;
         }
